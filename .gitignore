@@ -7,3 +7,5 @@ __pycache__/
 # 第三方参考文件，用 scripts/fetch_reference.sh 下载。
 # ERPNext 是 GPL-3.0，不提交副本进本仓库。
 reference/
+.idea/
+.vscode/
