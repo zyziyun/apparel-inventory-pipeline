@@ -58,7 +58,7 @@ make eval     # 结果比对，为什么不能 df1.equals(df2)
 | `NOT IN` 遇到 NULL | `NOT EXISTS` 查出 31 行，`NOT IN` 查出 **0 行**。执行计划一个是 `Hash Anti Join`，一个是 `NOT (hashed SubPlan 1)` |
 | `ON CONFLICT` 批内重复键 | 真实报错 `ON CONFLICT DO UPDATE command cannot affect row a second time`，`DISTINCT ON` 修好 |
 | 忘了 `is_cancelled = FALSE` | 总量 179983 对 177232，差 1.55%，**不报错不警告** |
-| `EXPLAIN` | 估算 `rows=150`，实际 `rows=17` |
+| `EXPLAIN` | 估算行数比实际大一个数量级，且估算值随统计信息状态变动 |
 
 ### `make guard`
 
