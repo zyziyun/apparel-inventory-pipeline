@@ -6,6 +6,7 @@
 """
 from __future__ import annotations
 
+import os
 import sys
 from collections import Counter
 from pathlib import Path
@@ -16,7 +17,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 from recon import rules
 from synth.generate import corrupt, generate
 
-DSN = "host=/tmp port=55432 user=ziyun dbname=postgres"
+DSN = os.getenv("PG_DSN", "host=/tmp port=55432 dbname=postgres")
 ROOT = Path(__file__).parent
 
 

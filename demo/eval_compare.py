@@ -7,12 +7,13 @@
 """
 from __future__ import annotations
 
+import os
 from dataclasses import dataclass
 
 import pandas as pd
 import psycopg
 
-DSN = "host=/tmp port=55432 user=ziyun dbname=postgres"
+DSN = os.getenv("PG_DSN", "host=/tmp port=55432 dbname=postgres")
 
 
 @dataclass

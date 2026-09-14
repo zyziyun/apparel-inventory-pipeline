@@ -1,7 +1,8 @@
 # 服装库存数据管道与对账系统，教学可跑版
 
-配合 `~/Desktop/zeyang_resume_run/Handout_S10_两个项目技术方案.md` 使用。
-讲义里每一个论断，这里都有一条能跑出真实数字的命令。
+一个用来讲数据工程的参考实现。每一个论断都有一条能跑出真实数字的命令：
+窗口函数的默认 frame 会怎么算错、`NOT IN` 为什么返回零行、
+对账报告为什么会把差异数虚高。
 
 数据全部合成，不含任何真实业务数据。
 
@@ -19,7 +20,6 @@ make reference   # 下载开源参考文件
 ## 课上怎么跑
 
 ```bash
-cd ~/Desktop/apparel-inventory-pipeline
 make run      # 端到端，看验收表
 make traps    # 5 个 SQL 坑，每个都有真实数字
 make guard    # AST 级 SQL 校验，12 条攻击

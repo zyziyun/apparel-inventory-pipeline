@@ -1,5 +1,7 @@
 PY := ./.venv/bin/python
-PG := /opt/homebrew/opt/postgresql@14/bin
+# Postgres 可执行文件目录。优先用 PATH 上的，找不到再退回 homebrew 默认位置。
+# 覆盖方式：make PG=/your/pg/bin up
+PG ?= $(shell dirname $$(command -v pg_ctl 2>/dev/null) 2>/dev/null || echo /opt/homebrew/opt/postgresql@14/bin)
 PGDATA := $(CURDIR)/pgdata
 PGOPTS := -p 55432 -k /tmp
 

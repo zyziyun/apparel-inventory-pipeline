@@ -6,11 +6,12 @@
 """
 from __future__ import annotations
 
+import os
 import sys
 
 import psycopg
 
-DSN = "host=/tmp port=55432 user=ziyun dbname=postgres"
+DSN = os.getenv("PG_DSN", "host=/tmp port=55432 dbname=postgres")
 
 
 def title(n, s):
