@@ -5,11 +5,21 @@
 
 数据全部合成，不含任何真实业务数据。
 
+## 首次准备
+
+```bash
+python3 -m venv .venv
+./.venv/bin/pip install "psycopg[binary]" sqlglot faker pandas
+make reference   # 下载开源参考文件
+```
+
+需要本机有 Postgres 14 以上。`make up` 会用 `initdb` 在 `./pgdata`
+建一个独立集群跑在 55432，**不碰系统上已有的服务**。
+
 ## 课上怎么跑
 
 ```bash
 cd ~/Desktop/apparel-inventory-pipeline
-make reference # 下载开源参考文件，首次必跑
 make run      # 端到端，看验收表
 make traps    # 5 个 SQL 坑，每个都有真实数字
 make guard    # AST 级 SQL 校验，12 条攻击
